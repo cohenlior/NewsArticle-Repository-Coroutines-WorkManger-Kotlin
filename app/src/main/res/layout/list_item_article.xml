@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout">
+    <data>
+        <variable
+                name="article"
+                type="com.example.android.mvvm_news_article.model.Article"/>
+
+        <variable
+                name="viewModel"
+                type="com.example.android.mvvm_news_article.ui.NewsListViewModel"/>
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="4dp"
+            android:layout_margin="4dp"
+            android:clickable="true"
+            android:focusable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:background="?attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/left_well"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="8dp"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/right_well"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="8dp"/>
+
+            <ImageView
+                    android:id="@+id/article_image"
+                    android:layout_width="120dp"
+                    android:layout_height="80dp"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/article_image"
+                    app:imageUrl="@{article.urlToImage}"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"/>
+
+            <TextView
+                    android:id="@+id/article_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="bold"
+                    tools:text="Article title"
+                    android:text="@{article.title}"
+                    app:layout_constraintStart_toEndOf="@+id/article_image"
+                    android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/right_well"/>
+
+
+            <TextView
+                    android:id="@+id/article_date"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/right_well"
+                    app:layout_constraintTop_toBottomOf="@+id/article_title"
+                    tools:text="This is a development date"
+                    app:articleDateFormatted="@{article}" app:layout_constraintStart_toEndOf="@+id/article_image"
+                    android:layout_marginStart="8dp" android:layout_marginEnd="8dp"/>
+
+            <TextView
+                    android:id="@+id/article_description"
+                    style="@android:style/TextAppearance.DeviceDefault.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:maxLines="2"
+                    app:layout_constraintBottom_toBottomOf="@+id/article_image"
+                    tools:text="This is a development description"
+                    android:text="@{article.description}"
+                    app:layout_constraintTop_toBottomOf="@+id/article_date"
+                    app:layout_constraintStart_toEndOf="@+id/article_image" android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
