@@ -14,6 +14,7 @@ class ArticlesRepository(private val database: ArticleDatabase) {
     suspend fun refreshArticles() {
         withContext(Dispatchers.IO) {
             val result = NetworkService.articles.getArticles().await()
+            database.articleDao().clear()
             database.articleDao().insertAll(*result.articles.toTypedArray())
         }
 

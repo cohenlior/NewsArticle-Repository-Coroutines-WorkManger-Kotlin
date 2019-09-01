@@ -10,11 +10,12 @@ data class ArticleResult(val articles: List<Article>)
 
 @Entity
 data class Article (
-    @PrimaryKey
-    val description: String,
-    val publishedAt: String,
-    val title: String,
-    val urlToImage: String
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
+    val description: String?,
+    val publishedAt: String?,
+    val title: String?,
+    val urlToImage: String?
 ) {
     var timestamp: Long = System.currentTimeMillis()
         get() = if(field > 0) field else {

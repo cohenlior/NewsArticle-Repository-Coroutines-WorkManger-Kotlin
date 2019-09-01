@@ -16,7 +16,7 @@
                 android:id="@+id/loader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                goneIfNotNull="@{viewModel.articles]"
+                app:goneIfNotNull="@{viewModel.articles}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
