@@ -1,5 +1,6 @@
-package com.example.android.mvvm_news_article.utils
+package com.example.android.mvvm_news_article_repository.utils
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.net.toUri
@@ -7,15 +8,15 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.android.mvvm_news_article.R
-import com.example.android.mvvm_news_article.model.Article
-import com.example.android.mvvm_news_article.ui.NewsListAdapter
+import com.example.android.mvvm_news_article_repository.R
+import com.example.android.mvvm_news_article_repository.model.Article
+import com.example.android.mvvm_news_article_repository.ui.NewsListAdapter
 
 @BindingAdapter("listData")
 fun bindRecyclerViewFavorites(recyclerView: RecyclerView, data: List<Article>?) {
     val adapter = recyclerView.adapter as NewsListAdapter
     if (data != null) {
-        adapter.addHeaderAndSubmitList(data)
+        adapter.articles = data
     }
 }
 
@@ -41,9 +42,7 @@ fun TextView.setArticleDateFormatted(item: Article?) {
     }
 }
 
-@BindingAdapter("articlesLastSync")
-fun TextView.setLastSync(data: List<Article>?) {
-    data?.let {
-        text = convertLongToDateString(data.last().timestamp, context.resources)
-    }
+@BindingAdapter("goneIfNotNull")
+fun goneIfNotNull(view: View, it: Any?) {
+    view.visibility = if (it != null) View.GONE else View.VISIBLE
 }

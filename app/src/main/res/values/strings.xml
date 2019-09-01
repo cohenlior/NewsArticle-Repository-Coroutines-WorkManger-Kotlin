@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">News Feed</string>
+    <string name="app_name">News Feed Repository</string>
     <string name="error_loading_articles">Error loading Articles!</string>
     <string name="article_image">Article image</string>
     <string name="formatted_last_sync">Last sync: %s</string>

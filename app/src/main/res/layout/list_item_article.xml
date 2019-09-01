@@ -6,11 +6,11 @@
     <data>
         <variable
                 name="article"
-                type="com.example.android.mvvm_news_article.model.Article"/>
+                type="com.example.android.mvvm_news_article_repository.model.Article"/>
 
         <variable
                 name="viewModel"
-                type="com.example.android.mvvm_news_article.ui.NewsListViewModel"/>
+                type="com.example.android.mvvm_news_article_repository.ui.NewsListViewModel"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView

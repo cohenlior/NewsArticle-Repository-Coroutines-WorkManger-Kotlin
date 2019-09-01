@@ -1,4 +1,4 @@
-package com.example.android.mvvm_news_article.utils
+package com.example.android.mvvm_news_article_repository.utils
 
 
 /** The base URL of the API */

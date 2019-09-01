@@ -1,7 +1,7 @@
-package com.example.android.mvvm_news_article.utils
+package com.example.android.mvvm_news_article_repository.utils
 
 import android.content.res.Resources
-import com.example.android.mvvm_news_article.R
+import com.example.android.mvvm_news_article_repository.R
 import java.text.SimpleDateFormat
 import java.util.*
 

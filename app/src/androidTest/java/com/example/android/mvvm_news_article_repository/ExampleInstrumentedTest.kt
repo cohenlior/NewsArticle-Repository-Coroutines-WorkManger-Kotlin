@@ -1,4 +1,4 @@
-package com.example.android.mvvm_news_article
+package com.example.android.mvvm_news_article_repository
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

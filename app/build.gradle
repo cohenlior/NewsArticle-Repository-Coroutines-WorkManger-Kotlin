@@ -14,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.android.mvvm_news_article"
+        applicationId "com.example.android.mvvm_news_article_repository"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
@@ -36,14 +36,17 @@ dependencies {
     // Core
     implementation 'androidx.core:core-ktx:1.0.2'
 
+    //LifeCycle
+    implementation "android.arch.lifecycle:reactivestreams:$version_lifecycle"
+
     // Constraint Layout
     implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
 
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
-    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$version_retrofit"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$version_retrofit_coroutines_adapter"
+
 
     //Moshi
     implementation "com.squareup.moshi:moshi:$version_moshi"
@@ -66,18 +69,12 @@ dependencies {
     implementation "androidx.room:room-runtime:$version_room"
     kapt "androidx.room:room-compiler:$version_room"
 
-    // Dagger 2
-    implementation "com.google.dagger:dagger:$version_dagger2"
-    kapt "com.google.dagger:dagger-compiler:$version_dagger2"
-    compileOnly "org.glassfish:javax.annotation:3.1.1"
-
-    //Rx
-    implementation "io.reactivex.rxjava2:rxjava:$version_rx_java"
-    implementation "io.reactivex.rxjava2:rxandroid:$version_rx_android"
-
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_coroutine"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutine"
+
+    // WorkManager
+    implementation "android.arch.work:work-runtime-ktx:$version_work"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
